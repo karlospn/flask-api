@@ -5,9 +5,11 @@ from datetime import datetime
 from . import create_app
 from .database.models import Items
 from .database import database
+from .healthchecks import health
 
 
 app = create_app()
+app.add_url_rule("/healthcheck", "healthcheck", view_func=lambda: health.run())
 
 
 @app.route("/welcome")
