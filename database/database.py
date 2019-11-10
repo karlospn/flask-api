@@ -6,6 +6,11 @@ def get_all(model):
     return data
 
 
+def get_by_id(model, id):
+    data = model.query.get(id)
+    return data
+
+
 def add_instance(model, **kwargs):
     instance = model(**kwargs)
     db.session.add(instance)
